@@ -8,7 +8,9 @@
 Сутність = риба
 Обьект = Лосось
 Класс = шаблон по которому модно определить к какой сущности подходит обьект (поля класса и методы класса)
-"""
+
+------------------------------------------------------------------Приклады коду-----------------------------------------------------------------------------------------------
+ """
 class Dog:
     def __init__(self, name, age, breed, weight):
         self.name = name
@@ -22,3 +24,20 @@ dog2 = Dog(name="Edward",age=7,breed="Dachshund",weight=9.5)
 
 print(f"My dogs name is {dog1.name} , its {dog1.age} years old , its a {dog1.breed}, its weights about {dog1.weight} kg")
 print(f"His dogs name is {dog2.name} , its {dog2.age} years old , its a {dog2.breed}, its weights about {dog2.weight} kg")
+
+class Hamster:
+    def __init__(self, name, energy = 10):
+        self.name = name
+        self.energy = energy
+    def eat(self):
+        print(hamster.name + " ate ")
+        hamster.energy += 3
+    def sleep(self):
+        print(hamster.name + " is sleeping ")
+        hamster.energy = 10
+
+
+hamster = Hamster(name="Gabriel")
+
+hamster.sleep()
+hamster.eat()
