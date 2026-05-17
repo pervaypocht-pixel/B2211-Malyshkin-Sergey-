@@ -5,13 +5,16 @@ class Animal:
         self.health = 100
 
     def info(self):
-        print("Name:", self.name)
-        print("Age:", self.age)
-        print("Health:", self.health)
+        print(f"\n--- Информация о животном ---")
+        print(f"Имя: {self.name}")
+        print(f"Возраст: {self.age}")
+        print(f"Здоровье: {self.health}")
 
     def sound(self):
-        print("Animal made a sound")
+        print(f"{self.name} издает звук")
 
+
+# ==================== ДИКИЕ ЖИВОТНЫЕ ====================
 
 class WildAnimal(Animal):
     def __init__(self, name, age, danger):
@@ -19,8 +22,11 @@ class WildAnimal(Animal):
         self.danger = danger
 
     def attack(self):
-        print(self.name, "attacks")
+        print(f"{self.name} атакует!")
+        print(f"Уровень опасности: {self.danger}")
 
+
+# ==================== ХИЩНИКИ ====================
 
 class Predator(WildAnimal):
     def __init__(self, name, age, danger, food_list):
@@ -28,33 +34,28 @@ class Predator(WildAnimal):
         self.food_list = food_list
 
     def hunt(self):
-        print(self.name, "hunts")
-        print("Food list:", self.food_list)
+        foods = ", ".join(self.food_list)
+
+        print(f"{self.name} выходит на охоту")
+        print(f"Список добычи: {foods}")
 
 
 class Lion(Predator):
-    def __init__(self, name, age, danger, food_list):
-        super().__init__(name, age, danger, food_list)
-
     def sound(self):
-        print(self.name, "roars violently")
+        print(f"{self.name} яростно рычит!")
 
 
 class Tiger(Predator):
-    def __init__(self, name, age, danger, food_list):
-        super().__init__(name, age, danger, food_list)
-
     def sound(self):
-        print(self.name, "roars aggressively")
+        print(f"{self.name} агрессивно рычит!")
 
 
 class Wolf(Predator):
-    def __init__(self, name, age, danger, food_list):
-        super().__init__(name, age, danger, food_list)
-
     def sound(self):
-        print(self.name, "howls wildly")
+        print(f"{self.name} дико воет!")
 
+
+# ==================== ТРАВОЯДНЫЕ ====================
 
 class Herbivorous(Animal):
     def __init__(self, name, age, grass_amount):
@@ -62,62 +63,99 @@ class Herbivorous(Animal):
         self.grass_amount = grass_amount
 
     def eat_grass(self):
-        print(self.name, "eats", self.grass_amount, "kg of grass per day")
+        print(f"{self.name} съедает {self.grass_amount} кг травы в день")
 
 
 class Wildebeest(Herbivorous):
-    def __init__(self, name, age, grass_amount):
-        super().__init__(name, age, grass_amount)
-
     def sound(self):
-        print(self.name, "snorts loudly")
+        print(f"{self.name} громко фыркает!")
 
 
 class Hare(Herbivorous):
-    def __init__(self, name, age, grass_amount):
-        super().__init__(name, age, grass_amount)
-
     def sound(self):
-        print(self.name, "makes a quiet squeak")
+        print(f"{self.name} тихо пищит!")
 
 
 class Deer(Herbivorous):
-    def __init__(self, name, age, grass_amount):
-        super().__init__(name, age, grass_amount)
-
     def sound(self):
-        print(self.name, "makes a deer call")
+        print(f"{self.name} издает олений зов!")
 
 
-lion = Lion("Lion", 12, "violent", ["Deer", "Hare"])
+# ======================================================
+#                    ХИЩНИКИ
+# ======================================================
+
+print("\n==============================")
+print("      РАЗДЕЛ ХИЩНИКОВ")
+print("==============================")
+
+lion = Lion("Лев", 12, "Очень опасный", ["Олень", "Заяц"])
+
 lion.info()
+print()
 lion.sound()
+print()
 lion.attack()
+print()
 lion.hunt()
 
-tiger = Tiger("Tiger", 14, "aggressive", ["Deer", "Wildebeest"])
+print("\n--------------------------------")
+
+tiger = Tiger("Тигр", 14, "Агрессивный", ["Олень", "Гну"])
+
 tiger.info()
+print()
 tiger.sound()
+print()
 tiger.attack()
+print()
 tiger.hunt()
 
-wolf = Wolf("Wolf", 9, "uncontrollable", ["Hare", "Deer"])
+print("\n--------------------------------")
+
+wolf = Wolf("Волк", 9, "Непредсказуемый", ["Заяц", "Олень"])
+
 wolf.info()
+print()
 wolf.sound()
+print()
 wolf.attack()
+print()
 wolf.hunt()
 
-wildebeest = Wildebeest("Wildebeest", 7, 35)
+
+# ======================================================
+#                  ТРАВОЯДНЫЕ
+# ======================================================
+
+print("\n\n==============================")
+print("    РАЗДЕЛ ТРАВОЯДНЫХ")
+print("==============================")
+
+wildebeest = Wildebeest("Гну", 7, 35)
+
 wildebeest.info()
+print()
 wildebeest.sound()
+print()
 wildebeest.eat_grass()
 
-hare = Hare("Hare", 3, 5)
+print("\n--------------------------------")
+
+hare = Hare("Заяц", 3, 5)
+
 hare.info()
+print()
 hare.sound()
+print()
 hare.eat_grass()
 
-deer = Deer("Deer", 6, 12)
+print("\n--------------------------------")
+
+deer = Deer("Олень", 6, 12)
+
 deer.info()
+print()
 deer.sound()
+print()
 deer.eat_grass()
