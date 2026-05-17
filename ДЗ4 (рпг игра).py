@@ -53,7 +53,7 @@ class Player:
 item1 = Item(name="Картошка Фри Судьбы", value=50)
 item2 = Item(name="Тако Бесконечности", value=100)
 
-player1 = Player(name="Палка", hp=100, damage=20)
+player1 = Player(name="Добрый Огурец", hp=100, damage=20)
 
 enemy1 = Enemy(name="Злой Огурец", hp=80, damage=15)
 
