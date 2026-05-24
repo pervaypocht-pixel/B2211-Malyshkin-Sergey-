@@ -12,7 +12,7 @@ class Enemy:
 
     def attack(self, player):
         print(f"{self.name} атакует {player.name}!")
-        player.hp -= self.damage
+        player.hp -= self.damageww
         print(f"{player.name} потерял {self.damage} хп!")
         print(f"Осталось хп у {player.name}: {player.hp}\n")
 
