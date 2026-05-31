@@ -1,32 +1,8 @@
-"""try:
-    x = int(input())
-    result = 10 / x2
-except ZeroDivisionError:
-    print("You can't divide by zero!")
-except ValueError:
-    print("You can't divide by a letter!")
-else:
-    print(result)
-finally:
-    print("end")"""
-"""try:
-    age = int(input())
-    if age < 0:
-        raise ValueError("Age can't be less than 0!")
-    if age == 0:
-        raise ValueError("Age can't be 0!")
-    print("ok")
-
-except ValueError as e:
-    print("error:" , e)
-except ValueError as i:
-    print("error:" , i)"""
 
 class BankAccount:
     def __init__(self, money):
         self.money = money
 
-    # 2. метод пополнения счета
     def add_money(self, amount):
         if amount <= 0:
             raise ValueError("Сума поповнення повинна бути більше 0")
@@ -40,10 +16,31 @@ class BankAccount:
             raise ValueError("Не можна знімати 0 грн")
 
         if amount < 0:
-            raise ValueError("Не можна знімати мінус")
+            raise ValueError("Не можна знімати від'ємну суму")
 
         if amount > self.money:
-            raise ValueError("Недостатньо грошей")
+            shortage = amount - self.money
+
+            answer = input(
+                f"Не вистачає {shortage} грн. Бажаєте взяти кредит? (y/n): "
+            )
+
+            if answer.lower() == "y":
+                days = int(input("На скільки днів кредит? "))
+
+                if days <= 30:
+                    percent = 0.03
+                else:
+                    percent = 0.04
+
+                repayment = shortage * (1 + percent)
+
+                print(f"Кредит видано: {shortage:.2f} грн")
+                print(f"До повернення: {repayment:.2f} грн")
+            else:
+                print("Операцію скасовано")
+
+            return
 
         self.money -= amount
         print("Знято:", amount)
