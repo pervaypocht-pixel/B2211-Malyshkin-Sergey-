@@ -64,3 +64,29 @@ while True:
     print("4 - Выход")
 
     choice = input("Выберите действие: ")
+
+    if choice == "1":
+        text = input("Введите описание угрозы: ")
+
+        threat = scanner.analyze(text)
+
+        log.add(threat)
+
+        print("Угроза добавлена")
+
+    elif choice == "2":
+        log.show()
+
+    elif choice == "3":
+        threat = log.strongest()
+
+        if threat:
+            threat.info()
+        else:
+            print("Список пуст")
+
+    elif choice == "4":
+        break
+
+    else:
+        print("Неверный выбор")
