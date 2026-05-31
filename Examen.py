@@ -96,12 +96,22 @@ class ThreatLog:
 scanner = Scanner()
 log = ThreatLog()
 
+print("╔══════════════════════════════════════╗")
+print("║         S E N T I N E L - 7          ║")
+print("║    Threat Intelligence System        ║")
+print("║    NEXUS-CORE // FORGE Faculty       ║")
+print("╚══════════════════════════════════════╝")
+print("     [SYSTEM ONLINE] [SCANNING READY]  ")
+print()
+
 while True:
-    print("\n1 - Добавить угрозу")
-    print("2 - Показать угрозы")
-    print("3 - Самая опасная угроза")
-    print("4 - Статистика сканера")
-    print("5 - Выход")
+    print("\n┌─── ГЛАВНОЕ МЕНЮ ─────────────────┐")
+    print("│  1 — Зарегистрировать угрозу     │")
+    print("│  2 — Журнал угроз                │")
+    print("│  3 — Наиболее опасная угроза     │")
+    print("│  4 — Статистика сканирования     │")
+    print("│  5 — Завершить работу            │")
+    print("└──────────────────────────────────┘")
 
     choice = input("Выберите действие: ")
 
@@ -112,7 +122,7 @@ while True:
 
         log.add(threat)
 
-        print("Угроза добавлена")
+        print("[SENTINEL-7] ⚠ Угроза зафиксирована и внесена в ThreatLog")
 
     elif choice == "2":
         log.show()
@@ -123,13 +133,13 @@ while True:
         if threat:
             threat.info()
         else:
-            print("Список пуст")
+            print("[SENTINEL-7] ThreatLog пуст. Угроз не зафиксировано.")
 
     elif choice == "4":
         scanner.get_stats()
 
     elif choice == "5":
-        print("Завершение программы...")
+        print("[SENTINEL-7] Протокол завершён. NEXUS-CORE под защитой.")
         break
 
     else:
