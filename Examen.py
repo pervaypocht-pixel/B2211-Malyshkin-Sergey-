@@ -33,3 +33,34 @@ class Scanner:
             return PhysicalThreat(text, 3)
 
         return Threat(text, 2)
+
+
+class ThreatLog:
+    def __init__(self):
+        self.threats = []
+
+    def add(self, threat):
+        self.threats.append(threat)
+
+    def show(self):
+        for threat in self.threats:
+            threat.info()
+            print()
+
+    def strongest(self):
+        if len(self.threats) == 0:
+            return None
+
+        return max(self.threats, key=lambda x: x.level)
+
+
+scanner = Scanner()
+log = ThreatLog()
+
+while True:
+    print("\n1 - Добавить угрозу")
+    print("2 - Показать угрозы")
+    print("3 - Самая опасная угроза")
+    print("4 - Выход")
+
+    choice = input("Выберите действие: ")
